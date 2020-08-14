@@ -118,7 +118,59 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
+var books = [{
+  title: 'Mortality for beatiful girls',
+  pages: 300,
+  author: 'Alexander Smith',
+  genre: 'fantasy',
+  read: false,
+  id: 278762763
+}, {
+  title: 'American Blood',
+  pages: 378,
+  author: 'Ben Sanders',
+  genre: 'real',
+  read: true,
+  id: 374857397
+}, {
+  title: 'Is there meaning in life',
+  pages: 289,
+  author: 'Jacquit',
+  genre: 'fiction',
+  read: true,
+  id: 39475836
+}, {
+  title: 'I will go with you',
+  pages: 403,
+  author: 'J L B Matekoni',
+  genre: 'fabulous',
+  read: false,
+  id: 397273487
+}, {
+  title: 'Never give up',
+  pages: 628,
+  author: 'Golden Smith',
+  genre: 'fantastic',
+  read: true,
+  id: 238734787
+}];
+var showlist = [];
+var bookTtile = document.querySelector(".title");
+var bookAuthor = document.querySelector(".author");
+var bookGenre = document.querySelector(".genre");
+var bookPages = document.querySelector(".pages");
+var bookStatus = document.querySelector(".status");
+var showList = document.querySelector(".showList_container");
 
+var showBookList = function showBookList(e) {
+  var filterBooks = [].concat(books);
+  var html = filterBooks.map(function (book) {
+    return "\n        <tr class=\"book_detail\">\n            <td>".concat(books.title, "</td>\n            <td>").concat(books.author, "</td>\n            <td>").concat(books.genre, "</td>\n            <td>").concat(books.pages, "</td>\n            <td><input type=\"checkbox\" id=\"read\" name=\"read\"></td>\n            <td><img class=\"delete_button\" src=\"./img/Vector.png\" alt=\"\"></td>\n        </tr>\n        ");
+  }).join(' ');
+  showList.innerHTML = html;
+};
+
+console.log(books);
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
