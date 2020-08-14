@@ -8,6 +8,9 @@
 		<title>WKP7</title>
 	<script src="/reset.302ca0b1.js"></script><script src="/style.e308ff8e.js"></script></head>
 	<body>
+		<div class="logo">
+			<img src="/onja_logo1.4de0e3cc.png" alt="">
+		</div>
 		<div class="container">
 			<h1>Library</h1>
 			<div class="add_book">
@@ -24,7 +27,9 @@
 					<li>
 						<label for="genre">Book genre</label>
 						<select name="genre" id="genre">
-							<option class="book_genre" value="genre">Genre</option>
+							<option class="book_genre" value="Fiction">Fiction</option>
+							<option class="book_genre" value="Real">Real </option>
+							<option class="book_genre" value="Fantasy">Fantasy</option>
 						</select>
 					</li>
 					<li>
@@ -34,7 +39,8 @@
 					<li>
 						<label for="status">Book Status</label>
 						<select name="status" id="status">
-							<option class="book_status" value="status">Status</option>
+							<option class="book_status" value="Read">Read</option>
+							<option class="book_status" value="Unread">Unread</option>
 						</select>
 					</li>
 					<li>
@@ -44,7 +50,7 @@
 					</li>
 				</ul>
 			</div>
-			<table>
+			<table width="1200" height="150">
 				<thead>
 					<tr>
 						<th>TITLE</th>
@@ -55,52 +61,17 @@
 						<th>DELETE</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
+				<tbody class="showList_container">
+					<tr class="book_detail">
+						<td>The moratlity fro beautiful girls</td>
+						<td>Alexander MmCall Sssmith</td>
 						<td>fantasy</td>
-						<td>very good</td>
+						<td>345</td>
+						<td><input type="checkbox" id="read" name="read"></td>
+						<td><img class="delete_button" src="/Vector.d7bc3a76.png" alt=""></td>
 					</tr>
 				</tbody>
 			</table>
-			<table>
-				<tr>
-				  <th>Month</th>
-				  <th>Savings</th>
-				</tr>
-				<tr>
-				  <td>January</td>
-				  <td>$100</td>
-				</tr>
-			  </table>
-
-			<!-- <div class="show_book">
-				<ul>
-					<li>TITLE
-						<ul>
-							<li>
-								The Mortality for beautiful girls
-							</li>
-						</ul>
-					</li>
-					<li>AUTHOR</li>
-					<li>GENRE</li>
-					<li>PAGES</li>
-					<li>READ</li>
-					<li>DELETE</li>
-				</ul>
-			</div>
-			<div class="book_detail">
-				<ul>
-					
-					<li>Alexander MmCall Sssmith</li>
-					<li>Fantasy</li>
-					<li>233</li>
-					<li>
-						<input type="checkbox" id="read" name="read">
-					</li>
-					<li>${I love this book}</li>
-				</ul>
-			</div> -->
 		<script src="/script.75da7f30.js"></script>
 	</div></body>
 </html>

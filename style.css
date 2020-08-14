@@ -53,3 +53,17 @@ select {
     background-color: white;
 
 }
+
+table {
+    background-color: gray;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.logo {
+    background: #0083C3;
+    margin-bottom: 2rem;
+}
