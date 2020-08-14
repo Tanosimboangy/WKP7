@@ -15,23 +15,27 @@
 				<ul>
 					<li>
 						<label for="title">Book title</label>
-						<input type="text" placeholder="TITLE" id="title" class="book_title">
+						<input type="text" placeholder="Title" id="title" class="book_title">
 					</li>
 					<li>
 						<label for="author">Book author</label>
-						<input type="text" placeholder="AUTHOR" id="author" class="book_author">
+						<input type="text" placeholder="Author" id="author" class="book_author">
 					</li>
 					<li>
 						<label for="genre">Book genre</label>
-						<input type="text" placeholder="GENRE" id="genre" class="book_genre">
+						<select name="genre" id="genre">
+							<option class="book_genre" value="genre">Genre</option>
+						</select>
 					</li>
 					<li>
 						<label for="pages">Book pages</label>
-						<input type="text" placeholder="PAGES" id="pages" class="book_pages">
+						<input type="text" placeholder="Number of pages" id="pages" class="book_pages">
 					</li>
 					<li>
-						<label for="status">Status</label>
-						<input type="text" placeholder="STATUS" id="status" class="book_status">
+						<label for="status">Book Status</label>
+						<select name="status" id="status">
+							<option class="book_status" value="status">Status</option>
+						</select>
 					</li>
 					<li>
 						<button class="add_button">
@@ -40,25 +44,63 @@
 					</li>
 				</ul>
 			</div>
-			<div class="show_book">
+			<table>
+				<thead>
+					<tr>
+						<th>TITLE</th>
+						<th>AUTHOR</th>
+						<th>GENRE</th>
+						<th>PAGES</th>
+						<th>READ</th>
+						<th>DELETE</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>fantasy</td>
+						<td>very good</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<tr>
+				  <th>Month</th>
+				  <th>Savings</th>
+				</tr>
+				<tr>
+				  <td>January</td>
+				  <td>$100</td>
+				</tr>
+			  </table>
+
+			<!-- <div class="show_book">
 				<ul>
-					<li>
-						TITLE
+					<li>TITLE
+						<ul>
+							<li>
+								The Mortality for beautiful girls
+							</li>
+						</ul>
 					</li>
-					<li>
-						AUTHOR
-					</li>
-					<li>
-						GENRE
-					</li>
-					<li>
-						PAGES
-					</li>
-					<li>
-						READ
-					</li>
+					<li>AUTHOR</li>
+					<li>GENRE</li>
+					<li>PAGES</li>
+					<li>READ</li>
+					<li>DELETE</li>
 				</ul>
 			</div>
+			<div class="book_detail">
+				<ul>
+					
+					<li>Alexander MmCall Sssmith</li>
+					<li>Fantasy</li>
+					<li>233</li>
+					<li>
+						<input type="checkbox" id="read" name="read">
+					</li>
+					<li>${I love this book}</li>
+				</ul>
+			</div> -->
 		<script src="/script.75da7f30.js"></script>
 	</div></body>
 </html>

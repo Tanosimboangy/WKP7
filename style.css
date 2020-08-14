@@ -34,6 +34,10 @@ label {
 input {
     padding: 8px;
 }
+select {
+    padding: 8px;
+    padding-right: 8px;
+}
 .add_button {
     padding: 8px 16px;
 }
@@ -42,4 +46,10 @@ input {
     padding: 1rem;
     background-color: grey;
     border-radius: 5px;
+}
+
+.book_detail {
+    padding: 1rem;
+    background-color: white;
+
 }
