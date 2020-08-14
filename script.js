@@ -43,33 +43,65 @@ const books = [
 ];
 
 let showlist = [];
-
-const bookTtile = document.querySelector(".title");
-const bookAuthor = document.querySelector(".author");
-const bookGenre = document.querySelector(".genre");
-const bookPages = document.querySelector(".pages");
-const bookStatus = document.querySelector(".status");
 const showList = document.querySelector(".showList_container");
 
-
-const showBookList = e => {
+// Mapping through the books array to get each element
+// Put those elements in the an html 
+function showBookList() {
+    // Spreading the books array to keep the original unchanged
     let filterBooks = [...books];
     const html = filterBooks.map(book => {
         return `
-        <tr class="book_detail">
-            <td>${books.title}</td>
-            <td>${books.author}</td>
-            <td>${books.genre}</td>
-            <td>${books.pages}</td>
+        <tr class="book_detail id="${book.id}">
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.genre}</td>
+            <td>${book.pages}</td>
             <td><input type="checkbox" id="read" name="read"></td>
             <td><img class="delete_button" src="./img/Vector.png" alt=""></td>
         </tr>
         `;
     }).join(' ');
-    showList.innerHTML = html;
+    // Appending the html into the mama html
+    showList.insertAdjacentHTML('beforeend', html);
+    console.log(filterBooks);
 };
+showBookList();
 
-console.log(books);
+const addButton = document.querySelector(".add_button");
+const bookTitle = document.querySelector(".title").value;
+const bookAuthor = document.querySelector(".author").value;
+const bookGenre = document.querySelector(".genre").value;
+const bookPages = document.querySelector(".pages").value;
+const bookStatus = document.querySelector(".status").value;
+
+const handleClickButton = e => {
+    let newArray = [title, author, genre, pages, read, id];
+    let newObject = {
+        title: bookTtile,
+        author: bookAuthor,
+        genre: bookPages, 
+        pages: bookPages, 
+        read: bookRead, 
+        status: bookStatus,
+    }
+    newArray.push(newObject);
+}
+
+
+addButton.addEventListener('click', handleClickButton);
+
+
 
 
     
+// return myHTML `
+//             <tr class="book_detail id="${book.id}">
+//                 <td>${bookTtile.value}</td>
+//                 <td>${bookAuthor.value}</td>
+//                 <td>${bookGenre.value}</td>
+//                 <td>${bookPages.value}</td>
+//                 <td>${bookStatus.value}</td>
+//                 <td><input type="checkbox" id="read" name="read"></td>
+//                 <td><img class="delete_button" src="./img/Vector.png" alt=""></td>
+//             </tr>`;

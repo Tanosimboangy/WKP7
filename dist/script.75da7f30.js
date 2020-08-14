@@ -155,22 +155,52 @@ var books = [{
   id: 238734787
 }];
 var showlist = [];
-var bookTtile = document.querySelector(".title");
-var bookAuthor = document.querySelector(".author");
-var bookGenre = document.querySelector(".genre");
-var bookPages = document.querySelector(".pages");
-var bookStatus = document.querySelector(".status");
-var showList = document.querySelector(".showList_container");
+var showList = document.querySelector(".showList_container"); // Mapping through the books array to get each element
+// Put those elements in the an html 
 
-var showBookList = function showBookList(e) {
+function showBookList() {
+  // Spreading the books array to keep the original unchanged
   var filterBooks = [].concat(books);
   var html = filterBooks.map(function (book) {
-    return "\n        <tr class=\"book_detail\">\n            <td>".concat(books.title, "</td>\n            <td>").concat(books.author, "</td>\n            <td>").concat(books.genre, "</td>\n            <td>").concat(books.pages, "</td>\n            <td><input type=\"checkbox\" id=\"read\" name=\"read\"></td>\n            <td><img class=\"delete_button\" src=\"./img/Vector.png\" alt=\"\"></td>\n        </tr>\n        ");
-  }).join(' ');
-  showList.innerHTML = html;
+    return "\n        <tr class=\"book_detail id=\"".concat(book.id, "\">\n            <td>").concat(book.title, "</td>\n            <td>").concat(book.author, "</td>\n            <td>").concat(book.genre, "</td>\n            <td>").concat(book.pages, "</td>\n            <td><input type=\"checkbox\" id=\"read\" name=\"read\"></td>\n            <td><img class=\"delete_button\" src=\"./img/Vector.png\" alt=\"\"></td>\n        </tr>\n        ");
+  }).join(' '); // Appending the html into the mama html
+
+  showList.insertAdjacentHTML('beforeend', html);
+  console.log(filterBooks);
+}
+
+;
+showBookList();
+var addButton = document.querySelector(".add_button");
+var bookTitle = document.querySelector(".title").value;
+var bookAuthor = document.querySelector(".author").value;
+var bookGenre = document.querySelector(".genre").value;
+var bookPages = document.querySelector(".pages").value;
+var bookStatus = document.querySelector(".status").value;
+
+var handleClickButton = function handleClickButton(e) {
+  var newArray = [title, author, genre, pages, read, id];
+  var newObject = {
+    title: bookTtile,
+    author: bookAuthor,
+    genre: bookPages,
+    pages: bookPages,
+    read: bookRead,
+    status: bookStatus
+  };
+  newArray.push(newObject);
 };
 
-console.log(books);
+addButton.addEventListener('click', handleClickButton); // return myHTML `
+//             <tr class="book_detail id="${book.id}">
+//                 <td>${bookTtile.value}</td>
+//                 <td>${bookAuthor.value}</td>
+//                 <td>${bookGenre.value}</td>
+//                 <td>${bookPages.value}</td>
+//                 <td>${bookStatus.value}</td>
+//                 <td><input type="checkbox" id="read" name="read"></td>
+//                 <td><img class="delete_button" src="./img/Vector.png" alt=""></td>
+//             </tr>`;
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
