@@ -118,6 +118,18 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 // Create an array of object to work out 
 var books = [{
   title: 'Mortality for beatiful girls',
@@ -219,7 +231,28 @@ function newFunction() {
 
 ; // Listen the form event 
 
-form.addEventListener('submit', handleClickButton); // const deleteButton = e => {
+form.addEventListener('submit', handleClickButton);
+
+var mirrorToLocalStorage = function mirrorToLocalStorage() {
+  // Convert the state into a string and store it into local storeage
+  console.info("mirroring items to local storage");
+  localStorage.setItem('items', JSON.stringify(books));
+};
+
+var restoreFromLocalStorage = function restoreFromLocalStorage() {
+  console.info('Restoring from LS');
+  var lsbooks = JSON.parse(localStorage.getItem('books')); // check if there is something inside local storage
+
+  if (lsbooks) {
+    books.push.apply(books, _toConsumableArray(lsbooks));
+    list.dispatchEvent(new CustomEvent('itemsUpdated'));
+  }
+}; // listening the event and displaying the data
+
+
+list.addEventListener('itemsUpdated', showBookList); // listening the event and storing it inside of the local storage
+
+list.addEventListener('itemsUpdated', mirrorToLocalStorage); // const deleteButton = e => {
 // 	if (e.target.matches('.delete_button')) {
 // 		const deleteNewList = event.target.closest('.delete_button');
 // 	}

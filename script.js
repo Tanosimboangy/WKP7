@@ -104,6 +104,7 @@ const handleClickButton = (event) => {
 	// Call this function
 	newFunction();
 	form.reset();
+	form.dispatchEvent(new CustomEvent('itemsUpdated'));
 }
 
 // Create a new function for the new html
@@ -114,7 +115,7 @@ function newFunction() {
 							<td>${book.title}</td>
 							<td>${book.author}</td>
 							<td>${book.genre}</td>
-							<td>${book.status}</td>
+							<td>${book.pages}</td>
 							<td><input type="checkbox" id="read" name="read"></td>
 							<td><img class="delete_button" src="./img/Vector.png" id="${book.id}" alt=""></td>
 						</tr>`).join("");
@@ -123,6 +124,30 @@ function newFunction() {
 };
 // Listen the form event 
 form.addEventListener('submit', handleClickButton);
+
+
+const mirrorToLocalStorage = () => {
+	localStorage.setItem('items', JSON.stringify(books));
+}
+
+const restoreFromLocalStorage = () => {
+	const lsbooks = JSON.parse(localStorage.getItem('items'));
+	if (lsbooks) {
+			books.push(...lsbooks);
+			form.dispatchEvent(new CustomEvent('itemsUpdated'));
+	}
+}
+
+form.addEventListener('itemsUpdated', mirrorToLocalStorage);
+
+
+
+
+
+
+
+
+
 
 // const deleteButton = e => {
 // 	if (e.target.matches('.delete_button')) {
