@@ -15,40 +15,42 @@
 			<h1>Library</h1>
 			<div class="add_book">
 				<h2>Add a book</h2>
-				<ul>
-					<li>
-						<label for="title">Book title</label><br>
-						<input type="text" placeholder="Title" id="title" class="book_title">
-					</li>
-					<li>
-						<label for="author">Book author</label><br>
-						<input type="text" placeholder="Author" id="author" class="book_author">
-					</li>
-					<li>
-						<label for="genre">Book genre</label><br>
-						<select name="genre" id="genre">
-							<option class="book_genre" value="Fiction">Fiction</option>
-							<option class="book_genre" value="Real">Real </option>
-							<option class="book_genre" value="Fantasy">Fantasy</option>
-						</select>
-					</li>
-					<li>
-						<label for="pages">Book pages</label><br>
-						<input type="text" placeholder="Number of pages" id="pages" class="book_pages">
-					</li>
-					<li>
-						<label for="status">Book Status</label><br>
-						<select name="status" id="status">
-							<option class="book_status" value="Read">Read</option>
-							<option class="book_status" value="Unread">Unread</option>
-						</select>
-					</li>
-					<li>
-						<button class="add_button">
-							Add
-						</button>
-					</li>
-				</ul>
+				<form>
+					<ul>
+						<li>
+							<label for="title">Book title</label><br>
+							<input type="text" placeholder="Title" id="title" class="book_title" required>
+						</li>
+						<li>
+							<label for="author">Book author</label><br>
+							<input type="text" placeholder="Author" id="author" class="book_author" required>
+						</li>
+						<li>
+							<label for="genre">Book genre</label><br>
+							<select name="genre" id="genre">
+								<option class="book_genre" value="Fiction">Fiction</option>
+								<option class="book_genre" value="Real">Real </option>
+								<option class="book_genre" value="Fantasy">Fantasy</option>
+							</select>
+						</li>
+						<li>
+							<label for="pages">Book pages</label><br>
+							<input type="text" placeholder="Number of pages" id="pages" class="book_pages" required>
+						</li>
+						<li>
+							<label for="status">Book Status</label><br>
+							<select name="status" id="status">
+								<option class="book_status" value="Read">Read</option>
+								<option class="book_status" value="Unread">Unread</option>
+							</select>
+						</li>
+						<li>
+							<button type="submit" class="add_button">
+								Add
+							</button>
+						</li>
+					</ul>
+				</form>
 			</div>
 			<table width = "100%" height = "100%">
 				<thead>

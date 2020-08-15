@@ -118,6 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
+// Create an array of object to work out 
 var books = [{
   title: 'Mortality for beatiful girls',
   pages: 300,
@@ -153,54 +154,79 @@ var books = [{
   genre: 'fantastic',
   read: true,
   id: 238734787
-}];
-var showlist = [];
+}]; // Grab the showlist contaniner to push the html
+
 var showList = document.querySelector(".showList_container"); // Mapping through the books array to get each element
 // Put those elements in the an html 
 
 function showBookList() {
-  // Spreading the books array to keep the original unchanged
-  var filterBooks = [].concat(books);
+  // Spreading the books array to keep the original unchanged and get a new one to use
+  var filterBooks = [].concat(books); // Creating a new html to store all the value from the object
+
   var html = filterBooks.map(function (book) {
-    return "\n        <tr class=\"book_detail id=\"".concat(book.id, "\">\n            <td>").concat(book.title, "</td>\n            <td>").concat(book.author, "</td>\n            <td>").concat(book.genre, "</td>\n            <td>").concat(book.pages, "</td>\n            <td><input type=\"checkbox\" id=\"read\" name=\"read\"></td>\n            <td><img class=\"delete_button\" src=\"./img/Vector.png\" alt=\"\"></td>\n        </tr>\n        ");
+    return "\n        <tr class=\"book_detail id=\"".concat(book.id, "\">\n            <td>").concat(book.title, "</td>\n            <td>").concat(book.author, "</td>\n            <td>").concat(book.genre, "</td>\n            <td>").concat(book.pages, "</td>\n            <td><input type=\"checkbox\" id=\"read\" name=\"read\"></td>\n            <td><img class=\"delete_button\" src=\"./img/Vector.png\" id=\"").concat(book.id, "\" alt=\"\"></td>\n        </tr>\n        ");
   }).join(' '); // Appending the html into the mama html
 
   showList.insertAdjacentHTML('beforeend', html);
-  console.log(filterBooks);
 }
 
-;
-showBookList();
-var addButton = document.querySelector(".add_button");
-var bookTitle = document.querySelector(".title").value;
-var bookAuthor = document.querySelector(".author").value;
-var bookGenre = document.querySelector(".genre").value;
-var bookPages = document.querySelector(".pages").value;
-var bookStatus = document.querySelector(".status").value;
+; // Return the function
 
-var handleClickButton = function handleClickButton(e) {
-  var newArray = [title, author, genre, pages, read, id];
+showBookList(); // Grab all those elements in order to get the values from them
+
+var bookTitle = document.getElementsByClassName(".title");
+var bookAuthor = document.getElementsByClassName(".author");
+var bookGenre = document.getElementsByClassName(".genre");
+var bookPages = document.getElementsByClassName(".pages");
+var bookStatus = document.getElementsByClassName(".status"); // Grab the form so that we can listen to it
+
+var form = document.querySelector("form"); // Create a  new variable for the new object
+
+var newObj = []; // Create the function for the eventListener from the add button
+
+var handleClickButton = function handleClickButton(event) {
+  event.preventDefault();
+  var newForm = event.currentTarget;
+  var title = newForm.title.value;
+  var author = newForm.author.value;
+  var genre = newForm.genre.value;
+  var pages = newForm.pages.value;
+  var status = newForm.status.value; // Create a new object
+
   var newObject = {
-    title: bookTtile,
-    author: bookAuthor,
-    genre: bookPages,
-    pages: bookPages,
-    read: bookRead,
-    status: bookStatus
-  };
-  newArray.push(newObject);
-};
+    title: title,
+    author: author,
+    genre: genre,
+    pages: pages,
+    status: status
+  }; // Push this object
 
-addButton.addEventListener('click', handleClickButton); // return myHTML `
-//             <tr class="book_detail id="${book.id}">
-//                 <td>${bookTtile.value}</td>
-//                 <td>${bookAuthor.value}</td>
-//                 <td>${bookGenre.value}</td>
-//                 <td>${bookPages.value}</td>
-//                 <td>${bookStatus.value}</td>
-//                 <td><input type="checkbox" id="read" name="read"></td>
-//                 <td><img class="delete_button" src="./img/Vector.png" alt=""></td>
-//             </tr>`;
+  newObj.push(newObject); // Call this function
+
+  newFunction();
+}; // Create a new function for the new html
+
+
+function newFunction() {
+  // Map through the new array of object
+  var mapBooks = newObj.map(function (book) {
+    return "\t<tr class=\"book_detail\">\n\t\t\t\t\t\t\t<td>".concat(book.title, "</td>\n\t\t\t\t\t\t\t<td>").concat(book.author, "</td>\n\t\t\t\t\t\t\t<td>").concat(book.genre, "</td>\n\t\t\t\t\t\t\t<td>").concat(book.status, "</td>\n\t\t\t\t\t\t\t<td><input type=\"checkbox\" id=\"read\" name=\"read\"></td>\n\t\t\t\t\t\t\t<td><img class=\"delete_button\" src=\"./img/Vector.png\" id=\"").concat(book.id, "\" alt=\"\"></td>\n\t\t\t\t\t\t</tr>");
+  }).join(""); // Insert the new html into the big one
+
+  showList.insertAdjacentHTML('beforeend', mapBooks);
+}
+
+; // Listen the form event 
+
+form.addEventListener('submit', handleClickButton); // const handleDeleteButton = e => {
+// 	if (e.target.matches('.delete_button')) {
+// 		const deleteNewList = event.target.closest('.delete_button');
+// 	}
+// };
+// const deleteOrder = (deleteList) => {
+// 	orderDelete.parentElement.remove();
+// }
+// DeleteList.addEventListener('click', );
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -229,7 +255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50021" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50567" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
