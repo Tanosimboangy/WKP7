@@ -82,6 +82,7 @@ const form = document.querySelector("form");
 
 // Create a  new variable for the new object
 let newObj = [];
+
 // Create the function for the eventListener from the add button
 const handleClickButton = (event) => {
 	event.preventDefault();
@@ -91,6 +92,7 @@ const handleClickButton = (event) => {
 	const genre = newForm.genre.value;
 	const pages = newForm.pages.value;
 	const status = newForm.status.value;
+
 	// Create a new object
 	const	newObject = {
 		title: title,
@@ -99,6 +101,7 @@ const handleClickButton = (event) => {
 		pages: pages, 
 		status: status,
 	};
+
 	// Push this object
 	newObj.push(newObject);
 	// Call this function
@@ -121,42 +124,39 @@ function newFunction() {
 						</tr>`).join("");
 	// Insert the new html into the big one
 	showList.insertAdjacentHTML('beforeend', mapBooks);
+	form.dispatchEvent(new CustomEvent('itemsUpdated'));
 };
 // Listen the form event 
 form.addEventListener('submit', handleClickButton);
 
 
+// Store the user's inputs inside of the local storage
 const mirrorToLocalStorage = () => {
-	localStorage.setItem('items', JSON.stringify(books));
+	localStorage.setItem('items', JSON.stringify(newObj));
 }
-
 const restoreFromLocalStorage = () => {
 	const lsbooks = JSON.parse(localStorage.getItem('items'));
 	if (lsbooks) {
-			books.push(...lsbooks);
-			form.dispatchEvent(new CustomEvent('itemsUpdated'));
+		books.push(...lsbooks);
+		form.dispatchEvent(new CustomEvent('itemsUpdated'));
 	}
 }
-
 form.addEventListener('itemsUpdated', mirrorToLocalStorage);
 
 
 
-
-
-
-
-
-
+// function deleteItem(id) {
+// 	console.log("DELETING ITEM");
+// }
 
 // const deleteButton = e => {
-// 	if (e.target.matches('.delete_button')) {
-// 		const deleteNewList = event.target.closest('.delete_button');
-
+// 	if (e.target.matches('td.delete_button')) {
+// 	console.log(e);
 // 	}
-// 	const deleteOrder = (deleteList) => {
-// 		deleteNewList.parentElement.remove();
-// 	}
-// };
+// }
 
-// DeleteList.addEventListener('click', deleteButton);
+// form.addEventListener('click', function(e) {
+// 	console.log(e.target, e.currentTarget);
+// });
+
+
