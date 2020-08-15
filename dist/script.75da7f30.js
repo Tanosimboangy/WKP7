@@ -125,35 +125,35 @@ var books = [{
   author: 'Alexander Smith',
   genre: 'fantasy',
   read: false,
-  id: 278762763
+  id: Date.now()
 }, {
   title: 'American Blood',
   pages: 378,
   author: 'Ben Sanders',
   genre: 'real',
   read: true,
-  id: 374857397
+  id: Date.now()
 }, {
   title: 'Is there meaning in life',
   pages: 289,
   author: 'Jacquit',
   genre: 'fiction',
   read: true,
-  id: 39475836
+  id: Date.now()
 }, {
   title: 'I will go with you',
   pages: 403,
   author: 'J L B Matekoni',
   genre: 'fabulous',
   read: false,
-  id: 397273487
+  id: Date.now()
 }, {
   title: 'Never give up',
   pages: 628,
   author: 'Golden Smith',
   genre: 'fantastic',
   read: true,
-  id: 238734787
+  id: Date.now()
 }]; // Grab the showlist contaniner to push the html
 
 var showList = document.querySelector(".showList_container"); // Mapping through the books array to get each element
@@ -204,6 +204,7 @@ var handleClickButton = function handleClickButton(event) {
   newObj.push(newObject); // Call this function
 
   newFunction();
+  form.reset();
 }; // Create a new function for the new html
 
 
@@ -218,15 +219,15 @@ function newFunction() {
 
 ; // Listen the form event 
 
-form.addEventListener('submit', handleClickButton); // const handleDeleteButton = e => {
+form.addEventListener('submit', handleClickButton); // const deleteButton = e => {
 // 	if (e.target.matches('.delete_button')) {
 // 		const deleteNewList = event.target.closest('.delete_button');
 // 	}
+// 	const deleteOrder = (deleteList) => {
+// 		deleteNewList.parentElement.remove();
+// 	}
 // };
-// const deleteOrder = (deleteList) => {
-// 	orderDelete.parentElement.remove();
-// }
-// DeleteList.addEventListener('click', );
+// DeleteList.addEventListener('click', deleteButton);
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

@@ -6,7 +6,7 @@ const books = [
 		author: 'Alexander Smith',
     genre: 'fantasy',
     read: false,
-    id: 278762763,
+    id: Date.now(),
 	},
 	{
 		title: 'American Blood',
@@ -14,7 +14,7 @@ const books = [
 		author: 'Ben Sanders',
     genre: 'real',
     read: true,
-    id: 374857397,
+    id: Date.now(),
 	},
 	{
 		title: 'Is there meaning in life',
@@ -22,7 +22,7 @@ const books = [
 		author: 'Jacquit',
     genre: 'fiction',
     read: true,
-    id: 39475836,
+    id: Date.now(),
 	},
 	{
 		title: 'I will go with you',
@@ -30,7 +30,7 @@ const books = [
 		author: 'J L B Matekoni',
     genre: 'fabulous',
     read: false,
-    id: 397273487,
+    id: Date.now(),
 	},
 	{
 		title: 'Never give up',
@@ -38,7 +38,7 @@ const books = [
 		author: 'Golden Smith',
     genre: 'fantastic',
     read: true,
-    id: 238734787,
+    id: Date.now(),
 	},
 	
 ];
@@ -103,6 +103,7 @@ const handleClickButton = (event) => {
 	newObj.push(newObject);
 	// Call this function
 	newFunction();
+	form.reset();
 }
 
 // Create a new function for the new html
@@ -123,17 +124,14 @@ function newFunction() {
 // Listen the form event 
 form.addEventListener('submit', handleClickButton);
 
-
-// const handleDeleteButton = e => {
+// const deleteButton = e => {
 // 	if (e.target.matches('.delete_button')) {
 // 		const deleteNewList = event.target.closest('.delete_button');
 
 // 	}
+// 	const deleteOrder = (deleteList) => {
+// 		deleteNewList.parentElement.remove();
+// 	}
 // };
 
-// const deleteOrder = (deleteList) => {
-// 	orderDelete.parentElement.remove();
-// }
-
-// DeleteList.addEventListener('click', );
-
+// DeleteList.addEventListener('click', deleteButton);
